@@ -23,7 +23,7 @@ import logging
 import random
 import time
 from datetime import datetime
-from pymodbus.server.async_io import StartAsyncServer
+from pymodbus.server import StartAsyncServer
 from pymodbus.factory import ClientDecoder
 from pymodbus.exceptions import ModbusIOException
 from pymodbus.datastore import ModbusSequentialDataBlock, ModbusSlaveContext, ModbusServerContext
