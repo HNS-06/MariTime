@@ -1,0 +1,26 @@
+{
+  "function_code_anomaly":     {"id": "T0814", "name": "Denial of Control",                   "tactic": "Impair Process Control"},
+  "value_anomaly":             {"id": "T0831", "name": "Manipulation of Control",              "tactic": "Impair Process Control"},
+  "source_ip_anomaly":         {"id": "T0886", "name": "Remote Services",                      "tactic": "Lateral Movement"},
+  "flooding_attack":           {"id": "T0814", "name": "Denial of Control",                   "tactic": "Impair Process Control"},
+  "safety_critical_violation": {"id": "T0838", "name": "Modify Safety I/O",                   "tactic": "Inhibit Response Function"},
+  "register_write_anomaly":    {"id": "T0833", "name": "Modify Control Logic",                 "tactic": "Impair Process Control"},
+  "timing_anomaly":            {"id": "T0891", "name": "Scheduled Transfer",                   "tactic": "Command and Control"},
+  "pattern_anomaly":           {"id": "T0846", "name": "Remote System Discovery",              "tactic": "Discovery"},
+  "baseline_anomaly":          {"id": "T0831", "name": "Manipulation of Control",              "tactic": "Impair Process Control"},
+  "recon_then_strike":         {"id": "T0888", "name": "Remote System Information Discovery",  "tactic": "Discovery"},
+  "register_sweep":            {"id": "T0846", "name": "Remote System Discovery",              "tactic": "Discovery"},
+  "slow_burn":                 {"id": "T0831", "name": "Manipulation of Control",              "tactic": "Impair Process Control"},
+  "safety_bypass_sequence":    {"id": "T0838", "name": "Modify Safety I/O",                   "tactic": "Inhibit Response Function"},
+  "rapid_function_pivot":      {"id": "T0814", "name": "Denial of Control",                   "tactic": "Impair Process Control"},
+  "firmware_tampering":        {"id": "T0839", "name": "Modify Program",                       "tactic": "Persistence"},
+  "unauthorized_write":        {"id": "T0855", "name": "Unauthorized Command Message",         "tactic": "Impair Process Control"},
+  "new_device_discovered":     {"id": "T0886", "name": "Remote Services",                      "tactic": "Lateral Movement"},
+  "device_behavioral_drift":   {"id": "T0843", "name": "Program Download",                    "tactic": "Lateral Movement"},
+  "confidence_anomaly":        {"id": "T0831", "name": "Manipulation of Control",              "tactic": "Impair Process Control"},
+  "os_fingerprint_anomaly":    {"id": "T0826", "name": "Loss of Safety",                       "tactic": "Loss of Safety"},
+  "dpi_protocol_violation":    {"id": "T0814", "name": "Denial of Control",                   "tactic": "Impair Process Control"},
+  "unauthorized_s7_control":    {"id": "T0814", "name": "Denial of Control",                   "tactic": "Impair Process Control"},
+  "unauthorized_dnp3_control":  {"id": "T0806", "name": "Reimport Control System Devices",     "tactic": "Initial Access"}
+}
+

@@ -1,0 +1,494 @@
+/* ============================================================
+   MARI TIME — Terminal UI Design System
+   Violet Theme inspired by Claude Code aesthetic
+   ============================================================ */
+
+/* ── App Root ── */
+Screen {
+    background: #0d0010;
+    color: #e2d9f3;
+    layers: base overlay;
+}
+
+/* ── Header ── */
+#header {
+    height: 10;
+    background: #0d0010;
+    border-bottom: tall #4c1d95;
+    padding: 0 2;
+    align: center middle;
+}
+
+#ascii-art {
+    color: #a78bfa;
+    text-style: bold;
+    content-align: center middle;
+}
+
+#subtitle {
+    color: #6d28d9;
+    text-style: italic;
+    content-align: center middle;
+}
+
+/* ── Main Layout ── */
+#main-grid {
+    grid-size: 3;
+    grid-columns: 22 1fr 28;
+    grid-rows: 1fr 10 3;
+    height: 1fr;
+}
+
+/* ── Panels shared ── */
+.panel {
+    border: round #4c1d95;
+    background: #100018;
+    padding: 1 2;
+}
+
+.panel-title {
+    color: #a78bfa;
+    text-style: bold;
+    background: #1e0a3a;
+    padding: 0 1;
+    dock: top;
+}
+
+/* ── System Status Panel ── */
+#status-panel {
+    column-span: 1;
+    row-span: 1;
+    border: round #5b21b6;
+    background: #0f001a;
+    padding: 1 2;
+}
+
+#status-panel .panel-title {
+    color: #c4b5fd;
+}
+
+.status-row {
+    height: 1;
+    color: #ddd6fe;
+}
+
+.status-ok {
+    color: #86efac;
+}
+
+.status-err {
+    color: #f87171;
+}
+
+.status-warn {
+    color: #fde047;
+}
+
+.status-label {
+    color: #7c3aed;
+    text-style: bold;
+}
+
+#uptime {
+    color: #8b5cf6;
+    margin-top: 1;
+}
+
+/* ── Alerts Feed Panel ── */
+#alerts-panel {
+    column-span: 1;
+    row-span: 1;
+    border: round #5b21b6;
+    background: #0a000f;
+    padding: 0;
+}
+
+#alerts-list {
+    scrollbar-color: #5b21b6;
+    scrollbar-background: #1a0030;
+    padding: 0 1;
+}
+
+.alert-row {
+    height: 2;
+    padding: 0 1;
+    margin: 0;
+}
+
+.alert-row:hover {
+    background: #1e0a3a;
+}
+
+.alert-row:focus {
+    background: #2d1255;
+    border-left: thick #a78bfa;
+}
+
+/* severity colors */
+.severity-critical {
+    color: #ef4444;
+}
+
+.severity-high {
+    color: #f97316;
+}
+
+.severity-warning {
+    color: #eab308;
+}
+
+.severity-info {
+    color: #22c55e;
+}
+
+.alert-badge-critical {
+    background: #7f1d1d;
+    color: #fca5a5;
+    text-style: bold;
+}
+
+.alert-badge-high {
+    background: #7c2d12;
+    color: #fdba74;
+    text-style: bold;
+}
+
+.alert-badge-warning {
+    background: #713f12;
+    color: #fde68a;
+    text-style: bold;
+}
+
+.alert-badge-info {
+    background: #14532d;
+    color: #86efac;
+    text-style: bold;
+}
+
+/* ── Stats Panel ── */
+#stats-panel {
+    column-span: 1;
+    row-span: 1;
+    border: round #5b21b6;
+    background: #0f001a;
+    padding: 1 2;
+}
+
+.stat-value {
+    color: #c4b5fd;
+    text-style: bold;
+}
+
+.stat-label {
+    color: #7c3aed;
+}
+
+.stat-bar-fill {
+    color: #8b5cf6;
+}
+
+.rule-entry {
+    color: #a78bfa;
+    height: 1;
+}
+
+.rule-count {
+    color: #ddd6fe;
+    text-style: bold;
+}
+
+/* ── Register Monitor Panel ── */
+#register-panel {
+    column-span: 3;
+    border: round #5b21b6;
+    background: #0a000f;
+    padding: 1 2;
+    height: 10;
+}
+
+.register-row {
+    height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.reg-label {
+    color: #8b5cf6;
+    width: 22;
+}
+
+.reg-bar {
+    color: #7c3aed;
+    width: 30;
+}
+
+.reg-value {
+    color: #c4b5fd;
+    width: 8;
+    text-style: bold;
+}
+
+.reg-status-normal {
+    color: #22c55e;
+    width: 10;
+}
+
+.reg-status-warn {
+    color: #eab308;
+    width: 10;
+}
+
+.reg-status-critical {
+    color: #ef4444;
+    width: 10;
+}
+
+/* ── Footer ── */
+#footer {
+    column-span: 3;
+    height: 3;
+    background: #1e0a3a;
+    border-top: tall #4c1d95;
+    padding: 0 2;
+    align: left middle;
+}
+
+.shortcut-key {
+    color: #a78bfa;
+    text-style: bold;
+    background: #2d1255;
+    padding: 0 1;
+}
+
+.shortcut-label {
+    color: #6d28d9;
+    margin-right: 2;
+}
+
+/* ── Alert Detail Modal ── */
+AlertDetailModal {
+    align: center middle;
+    layer: overlay;
+}
+
+#alert-modal-container {
+    width: 80;
+    height: 28;
+    background: #130020;
+    border: thick #7c3aed;
+    padding: 1 2;
+}
+
+#modal-title {
+    color: #c4b5fd;
+    text-style: bold;
+    border-bottom: solid #4c1d95;
+    padding-bottom: 1;
+    margin-bottom: 1;
+}
+
+#modal-body {
+    color: #e2d9f3;
+    height: 1fr;
+    overflow-y: auto;
+    scrollbar-color: #5b21b6;
+}
+
+#modal-close {
+    margin-top: 1;
+    background: #5b21b6;
+    color: #f5f3ff;
+    border: none;
+}
+
+#modal-close:hover {
+    background: #7c3aed;
+}
+
+/* ── Filter Panel ── */
+FilterPanel {
+    align: center middle;
+    layer: overlay;
+}
+
+#filter-container {
+    width: 50;
+    height: 22;
+    background: #130020;
+    border: thick #7c3aed;
+    padding: 1 2;
+}
+
+#filter-title {
+    color: #c4b5fd;
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+FilterPanel Checkbox {
+    color: #ddd6fe;
+    background: transparent;
+}
+
+FilterPanel Checkbox:focus {
+    color: #a78bfa;
+}
+
+#filter-apply {
+    margin-top: 1;
+    background: #5b21b6;
+    color: #f5f3ff;
+}
+
+#filter-apply:hover {
+    background: #7c3aed;
+}
+
+/* ── Help Modal ── */
+HelpModal {
+    align: center middle;
+    layer: overlay;
+}
+
+#help-container {
+    width: 60;
+    height: 30;
+    background: #130020;
+    border: thick #7c3aed;
+    padding: 1 2;
+}
+
+#help-title {
+    color: #c4b5fd;
+    text-style: bold;
+    border-bottom: solid #4c1d95;
+    margin-bottom: 1;
+}
+
+/* ── ProgressBar ── */
+ProgressBar {
+    color: #7c3aed;
+    background: #1e0a3a;
+}
+
+ProgressBar Bar {
+    color: #8b5cf6;
+    background: #2d1255;
+}
+
+/* ── Scrollbar ── */
+ScrollBar {
+    background: #1a0030;
+}
+
+ScrollBar Slider {
+    background: #5b21b6;
+}
+
+/* ── DataTable ── */
+DataTable {
+    background: #0a000f;
+    color: #e2d9f3;
+}
+
+DataTable > .datatable--header {
+    background: #1e0a3a;
+    color: #a78bfa;
+    text-style: bold;
+}
+
+DataTable > .datatable--cursor {
+    background: #2d1255;
+    color: #f5f3ff;
+}
+
+DataTable > .datatable--hover {
+    background: #1a0030;
+}
+
+/* ── Topology Panel ── */
+#topology-panel {
+    border: round #5b21b6;
+    background: #080010;
+    padding: 1 2;
+    height: 14;
+}
+
+.topo-node-plc      { color: #22c55e; text-style: bold; }
+.topo-node-hmi      { color: #a78bfa; }
+.topo-node-attacker { color: #ef4444; text-style: bold; }
+.topo-node-unknown  { color: #eab308; }
+.topo-edge-normal   { color: #4c1d95; }
+.topo-edge-malicious { color: #ef4444; text-style: bold; }
+.topo-blink         { color: #f97316; text-style: bold; }
+
+/* ── Asset Inventory Panel ── */
+#assets-panel {
+    border: round #5b21b6;
+    background: #080010;
+    padding: 1 2;
+    height: 14;
+}
+
+.asset-row { height: 1; padding: 0 1; }
+.asset-ok        { color: #22c55e; }
+.asset-suspicious { color: #eab308; }
+.asset-attacking { color: #ef4444; text-style: bold; }
+.asset-unknown   { color: #6d28d9; }
+
+/* ── Demo Mode Banner ── */
+#demo-banner {
+    height: 3;
+    background: #7f1d1d;
+    border: tall #ef4444;
+    color: #fca5a5;
+    text-style: bold;
+    align: center middle;
+    dock: top;
+}
+
+#demo-progress {
+    height: 1;
+    color: #ef4444;
+    background: #3b0000;
+}
+
+/* ── Replay Mode Banner ── */
+#replay-banner {
+    height: 3;
+    background: #1e1b4b;
+    border: tall #6366f1;
+    color: #c7d2fe;
+    text-style: bold;
+    align: center middle;
+    dock: top;
+}
+
+/* ── Alert Lifecycle Badges ── */
+.badge-new         { background: #1a0030; color: #a78bfa; text-style: bold; }
+.badge-acknowledged { background: #14532d; color: #86efac; }
+.badge-muted       { background: #374151; color: #9ca3af; }
+.badge-escalated   { background: #7f1d1d; color: #fca5a5; text-style: bold; }
+.badge-closed      { background: #111827; color: #4b5563; }
+
+/* ── MITRE ATT&CK Badge ── */
+.mitre-badge {
+    background: #1e0a3a;
+    color: #8b5cf6;
+    text-style: bold;
+    padding: 0 1;
+}
+
+/* ── Learning Phase Progress ── */
+#learning-banner {
+    height: 3;
+    background: #0c1a0c;
+    border: tall #22c55e;
+    color: #86efac;
+    align: center middle;
+    dock: top;
+}
+
+/* ── Firmware Status ── */
+.firmware-ok       { color: #22c55e; }
+.firmware-tampered { color: #ef4444; text-style: bold; }

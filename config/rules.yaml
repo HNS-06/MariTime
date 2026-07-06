@@ -1,0 +1,164 @@
+# MARI TIME — Rule Engine Configuration
+# Edit this file to enable/disable rules and adjust thresholds
+# Hot-reload with Ctrl+R in the TUI dashboard
+
+meta:
+  version: "1.0"
+  description: "MariTime Modbus Security Rules"
+  last_modified: "2026-07-05"
+
+settings:
+  baseline_learning_duration: 300   # seconds
+  correlation_window: 120           # seconds for sequence correlation
+  alert_rate_limit: 100             # max alerts per minute (global)
+  siem:
+    enabled: true
+    host: "127.0.0.1"
+    port: 514
+    protocol: "UDP"
+    format: "CEF"
+  soar:
+    enabled: true
+    contain_critical: true
+  active_scanner:
+    enabled: true
+    interval: 300
+
+rules:
+  - id: function_code_anomaly
+    enabled: true
+    severity_normal_hours: critical
+    severity_shift_change: high
+    description: "Unauthorized or rare function codes"
+    parameters:
+      allowed_codes: ["0x03"]
+      shift_write_codes: ["0x06"]
+    mitre: T0814
+
+  - id: value_anomaly
+    enabled: true
+    severity: high
+    description: "Register values outside normal operational ranges"
+    parameters:
+      z_score_threshold: 2.0
+      register_ranges:
+        40001: [0, 100]
+        40002: [0, 100]
+        40003: [0, 150]
+        40004: [0, 10]
+        40005: [0, 100]
+        40006: [0, 10]
+    mitre: T0831
+
+  - id: source_ip_anomaly
+    enabled: true
+    severity: high
+    description: "Traffic from unauthorized source IPs"
+    parameters:
+      whitelisted_ips:
+        - "10.0.1.1"
+        - "10.0.1.2"
+        - "10.0.2.1"
+    mitre: T0886
+
+  - id: timing_anomaly
+    enabled: true
+    severity: high
+    description: "Critical operations outside normal hours"
+    parameters:
+      normal_hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+      shift_change_hours: [5, 6, 17, 18]
+    mitre: T0891
+
+  - id: pattern_anomaly
+    enabled: true
+    severity: warning
+    description: "Deviation from baseline traffic patterns"
+    parameters:
+      rare_function_code_threshold: 0.05
+    mitre: T0846
+
+  - id: safety_critical_violation
+    enabled: true
+    severity: critical
+    description: "Unauthorized writes to safety-critical registers"
+    parameters:
+      safety_registers: [40006]
+    mitre: T0838
+
+  - id: register_write_anomaly
+    enabled: true
+    severity: high
+    description: "Writes to registers not designated for write operations"
+    parameters:
+      writable_registers: [40002, 40005]
+    mitre: T0833
+
+  - id: flooding_attack
+    enabled: true
+    severity: critical
+    description: "Potential flooding/DoS attack from a single source"
+    parameters:
+      threshold_per_minute: 50
+      window_seconds: 60
+    mitre: T0814
+
+  - id: unauthorized_write
+    enabled: true
+    severity: critical
+    description: "Write operation without valid HMAC authorization token"
+    parameters:
+      require_hmac: true
+    mitre: T0855
+
+  - id: recon_then_strike
+    enabled: true
+    severity: critical
+    description: "Read scan followed by write within 60 seconds (recon-then-strike)"
+    parameters:
+      min_reads_for_recon: 5
+      recon_window_seconds: 30
+      strike_window_seconds: 60
+    mitre: T0888
+
+  - id: register_sweep
+    enabled: true
+    severity: high
+    description: "Sequential sweep of multiple registers (discovery activity)"
+    parameters:
+      min_registers: 8
+      window_seconds: 10
+    mitre: T0846
+
+  - id: firmware_tampering
+    enabled: true
+    severity: critical
+    description: "PLC firmware or configuration integrity violation"
+    parameters:
+      check_interval_seconds: 30
+    mitre: T0839
+
+  - id: os_fingerprint_anomaly
+    enabled: true
+    severity: high
+    description: "OS fingerprint anomaly detected"
+    mitre: T0826
+
+  - id: dpi_protocol_violation
+    enabled: true
+    severity: critical
+    description: "DPI protocol violation detected"
+    mitre: T0814
+
+  - id: unauthorized_s7_control
+    enabled: true
+    severity: critical
+    description: "Unauthorized S7 control command"
+    mitre: T0814
+
+  - id: unauthorized_dnp3_control
+    enabled: true
+    severity: critical
+    description: "Unauthorized DNP3 control command"
+    mitre: T0806
+

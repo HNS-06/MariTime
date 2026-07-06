@@ -1,0 +1,5 @@
+textual>=0.47.0
+rich>=13.0.0
+websockets>=11.0
+httpx>=0.24.0
+pymodbus>=3.0.0

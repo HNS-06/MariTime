@@ -1,0 +1,66 @@
+{
+  "allowed_ips": [
+    "10.0.1.1",
+    "10.0.1.2",
+    "10.0.2.1"
+  ],
+  "firmware_hash_baseline": "",
+  "maintenance_windows": [
+    {
+      "day": "Sunday",
+      "end": "04:00",
+      "start": "02:00"
+    },
+    {
+      "day": "Wednesday",
+      "end": "04:00",
+      "start": "03:00"
+    }
+  ],
+  "registers": {
+    "40001": {
+      "description": "Pump speed",
+      "max": 100,
+      "min": 0,
+      "unit": "percent",
+      "writable": false
+    },
+    "40002": {
+      "description": "Valve position",
+      "max": 100,
+      "min": 0,
+      "unit": "percent",
+      "writable": true
+    },
+    "40003": {
+      "description": "Temperature",
+      "max": 150,
+      "min": 0,
+      "unit": "celsius_x10",
+      "writable": false
+    },
+    "40004": {
+      "description": "Pressure",
+      "max": 10,
+      "min": 0,
+      "unit": "bar_x10",
+      "writable": false
+    },
+    "40005": {
+      "description": "Flow rate",
+      "max": 100,
+      "min": 0,
+      "unit": "percent",
+      "writable": true
+    },
+    "40006": {
+      "description": "Alarm status (SAFETY CRITICAL)",
+      "max": 10,
+      "min": 0,
+      "safety_critical": true,
+      "unit": "count",
+      "writable": false
+    }
+  },
+  "version": "2.1.4"
+}
